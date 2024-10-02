@@ -60,20 +60,23 @@ namespace FileExercises
             {
                 using (StreamReader reader = new StreamReader(path))
                 {
-                    string str;
-                    while ((str = reader.ReadLine()) != null)
-                    {
-                        
-                    }
-                    string email;
-                    while ((email = reader.ReadLine()) != null)
-                    {
-                        
-                    }
 
+                    char temp = (char)(reader.Read());
+                    if (temp == null)
+                    {
+                        
+                    }
+                    while (temp != null)
+                    {
+                        
+                        if (!char.IsWhiteSpace(temp))
+                        {
+
+                        }
+                    }
                 }
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine(e);
             }
