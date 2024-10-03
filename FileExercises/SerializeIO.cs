@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,29 +57,27 @@ namespace FileExercises
         // Load contacts from file.
         public void DeSerialize(string path)
         {
-            try
+            if (File.Exists(path))
             {
-                using (StreamReader reader = new StreamReader(path))
+                // Read file
+                try
                 {
 
-                    char temp = (char)(reader.Read());
-                    if (temp == null)
-                    {
-                        
-                    }
-                    while (temp != null)
-                    {
-                        
-                        if (!char.IsWhiteSpace(temp))
-                        {
 
+                    using (StreamReader reader = File.OpenText(path))
+                    {
+                        string str = "";
+                        while ((str = reader.ReadLine()) != null)
+                        {
+                            
                         }
                     }
                 }
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e);
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+
             }
         }
 
