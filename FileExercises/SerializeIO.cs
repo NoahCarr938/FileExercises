@@ -18,38 +18,33 @@ namespace FileExercises
         public string name;
         public string email;
         public int id;
+        string str;
 
         public void Serialize(string path)
         {
-            if (!File.Exists(path))
+            try
             {
+                // Makes a new path
+                StreamWriter writer = new StreamWriter(path);
+                writer.WriteLine(name + " ");
+                writer.WriteLine(email + " ");
+                writer.WriteLine(id + " ");
+                writer.WriteLine();
+                writer.Close();
 
-
+                // Dispose of the object
                 try
                 {
-                    // Makes a new path
-                    StreamWriter writer = new StreamWriter(path);
-                    writer.WriteLine();
-                    writer.WriteLine(name + " ");
-                    writer.WriteLine(email + " ");
-                    writer.WriteLine(id + " ");
-                    writer.WriteLine();
-                    writer.Close();
-
-                    // Dispose of the object
-                    try
-                    {
-                        writer.Dispose();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                    }
+                    writer.Dispose();
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
@@ -60,17 +55,10 @@ namespace FileExercises
             {
                 using (StreamReader reader = new StreamReader(path))
                 {
-                    string str;
-                    while ((str = reader.ReadLine()) != null)
-                    {
-                        
-                    }
-                    string email;
-                    while ((email = reader.ReadLine()) != null)
-                    {
-                        
-                    }
+                    name = reader.ReadLine();
+                    email = reader.ReadLine();
 
+                    if (int.TryParse(reader.ReadLine(), out id));
                 }
             }
             catch (Exception e)
