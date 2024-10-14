@@ -1,6 +1,6 @@
 # FileExercises
 Link to the FileExercises release on github
-https://github.com/NoahCarr938/FileExercises/releases/tag/v1.0
+https://github.com/NoahCarr938/FileExercises/releases/tag/v1.1
 Download the zipped FileExercises file
 Right click on the file and extract all
 Open the extracted folder and open the net8.0 folder and run the .exe inside
